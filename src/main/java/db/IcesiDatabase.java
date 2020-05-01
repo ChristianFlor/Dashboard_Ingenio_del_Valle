@@ -19,6 +19,7 @@ public class IcesiDatabase {
     }
     public void closeConnection() throws SQLException { connection.close();}
     /*
+
     public void insertEstudiante(Estudiante estudiante) {
         String sql= "INSERT INTO estudiantes(id,nombre,codigo) VALUES ('%ID%','%NOMBRE%','%CODIGO%')";
         sql = sql.replace("%ID%", estudiante.getId());
