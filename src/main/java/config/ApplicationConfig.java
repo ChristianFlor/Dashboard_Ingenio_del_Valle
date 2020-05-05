@@ -14,7 +14,9 @@ public class ApplicationConfig extends Application {
         Set<Class<?>> res = new HashSet<>();
 
         res.add(services.EchoService.class);
-
+        res.add(services.EngineerService.class);
+        res.add(services.MeasurementService.class);
+        res.add(services.SectorService.class);
         return res;
     }
 }
