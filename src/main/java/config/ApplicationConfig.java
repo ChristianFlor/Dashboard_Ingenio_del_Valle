@@ -15,7 +15,8 @@ public class ApplicationConfig extends Application {
 
         res.add(services.EchoService.class);
         res.add(services.EngineerService.class);
-
+        res.add(services.MeasurementService.class);
+        res.add(services.SectorService.class);
         return res;
     }
 }

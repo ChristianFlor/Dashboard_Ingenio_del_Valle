@@ -23,7 +23,13 @@ public class IcesiDatabase {
         }
 
     }
-    public void closeConnection() throws SQLException { connection.close();}
+    public void closeConnection()  {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void insertEngineer(Engineer engineer){
         String sql= "INSERT INTO engineer(id,name,lastname,email,username,pass) VALUES ('%ID%','%NAME%','%LASTNAME%','%EMAIL%','%USERNAME%','%PASS%')";
