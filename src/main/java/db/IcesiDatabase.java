@@ -1,5 +1,8 @@
 package db;
 
+import model.Engineer;
+import model.Measurement;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -18,6 +21,38 @@ public class IcesiDatabase {
 
     }
     public void closeConnection() throws SQLException { connection.close();}
+
+    public void insertEngineer(Engineer engineer){
+        String sql= "INSERT INTO engineer(id,name,lastname,email,username,pass) VALUES ('%ID%','%NAME%','%LASTNAME%','%EMAIL%','%USERNAME%','%PASS%')";
+        sql = sql.replace("%ID%",engineer.getId());
+        sql = sql.replace("%NAME%",engineer.getName());
+        sql = sql.replace("%LASTNAME%%",engineer.getLastname());
+        sql = sql.replace("%EMAIL%",engineer.getEmail());
+        sql = sql.replace("%USERNAME%",engineer.getUsername());
+        sql = sql.replace("%PASS%",engineer.getPassword());
+        try {
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertMeasurement(Measurement measurement){
+        String sql= "INSERT INTO measurement(id,ph,humidity,co2,temperature,measurementDate) VALUES ('%ID%','%PH%','%HUMIDITY%','%CO2%','%TEMPERATURE%','%MEASUREMENTDATE%')";
+        sql = sql.replace("%ID%",measurement.getId());
+        sql = sql.replace("%PH%",measurement.getpH()+"");
+        sql = sql.replace("%HUMIDITY%",measurement.getHumidity()+"");
+        sql = sql.replace("%CO2%",measurement.getCo2()+"");
+        sql = sql.replace("%TEMPERATURE%",measurement.getTemperature()+"");
+        sql = sql.replace("%MEASUREMENTDATE%",measurement.getDateTime()+"");
+        try {
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /*
 
     public void insertEstudiante(Estudiante estudiante) {
