@@ -10,16 +10,16 @@ import java.util.ArrayList;
 @Stateless
 @Path("sector")
 public class SectorService {
-    @Path("insert")
+    @Path("insert/{id}/{idEng}")
     @POST
-    public void registerSector(String id,String idEngAssigned){
+    public void registerSector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){
         IcesiDatabase icesiDataBase = new IcesiDatabase();
         icesiDataBase.insertSector(id,idEngAssigned);
         icesiDataBase.closeConnection();
     }
     @PUT
-    @Path("update")
-    public void modifySector(String id, String idEngAssigned){
+    @Path("update/{id}/{idEng}")
+    public void modifySector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){
         IcesiDatabase icesiDataBase = new IcesiDatabase();
         icesiDataBase.modifySector(id, idEngAssigned);
         icesiDataBase.closeConnection();

@@ -32,10 +32,10 @@ public class IcesiDatabase {
     }
 
     public void insertEngineer(Engineer engineer){
-        String sql= "INSERT INTO engineer(id,name,lastname,email,username,pass) VALUES ('%ID%','%NAME%','%LASTNAME%','%EMAIL%','%USERNAME%','%PASS%')";
+        String sql= "INSERT INTO engineer(id,nameEngineer,lastname,email,username,pass) VALUES ('%ID%','%NAMEENGINEER%','%LASTNAME%','%EMAIL%','%USERNAME%','%PASS%')";
         sql = sql.replace("%ID%",engineer.getId());
-        sql = sql.replace("%NAME%",engineer.getName());
-        sql = sql.replace("%LASTNAME%%",engineer.getLastname());
+        sql = sql.replace("%NAMEENGINEER%",engineer.getName());
+        sql = sql.replace("%LASTNAME%",engineer.getLastname());
         sql = sql.replace("%EMAIL%",engineer.getEmail());
         sql = sql.replace("%USERNAME%",engineer.getUsername());
         sql = sql.replace("%PASS%",engineer.getPassword());
@@ -55,7 +55,7 @@ public class IcesiDatabase {
         sql = sql.replace("%CO2%",measurement.getCo2()+"");
         sql = sql.replace("%TEMPERATURE%",measurement.getTemperature()+"");
         sql = sql.replace("%MEASUREMENTDATE%",measurement.getDateTime()+"");
-        sql = sql.replace("IDSECTOR",idSector);
+        sql = sql.replace("%IDSECTOR%",idSector);
         try {
             statement.execute(sql);
         } catch (SQLException e) {
@@ -171,11 +171,11 @@ public class IcesiDatabase {
     }
 
     public void modifyEnginner(Engineer engineer){
-        String sql = "UPDATE engineer SET name ='%NAME%',lastname='%LASTNAME%',email = '%EMAIL%'," +
+        String sql = "UPDATE engineer SET nameEngineer ='%NAME%',lastname='%LASTNAME%',email = '%EMAIL%'," +
                 "username = '%USERNAME%',pass = '%PASS%' WHERE id='%ID%'";
         sql = sql.replace("%ID%",engineer.getId());
         sql = sql.replace("%NAME%",engineer.getName());
-        sql = sql.replace("%LASTNAME%%",engineer.getLastname());
+        sql = sql.replace("%LASTNAME%",engineer.getLastname());
         sql = sql.replace("%EMAIL%",engineer.getEmail());
         sql = sql.replace("%USERNAME%",engineer.getUsername());
         sql = sql.replace("%PASS%",engineer.getPassword());

@@ -10,11 +10,11 @@ import java.util.ArrayList;
 @Stateless
 @Path("measurement")
 public class MeasurementService {
-    @Path("insert")
+    @Path("insert/{idSector}")
     @POST
     @Consumes("application/json")//recibo
     @Produces("application/json")//enviar
-    public Measurement insertMeasurement(Measurement measurement, String idSector){
+    public Measurement insertMeasurement(Measurement measurement,@PathParam("idSector") String idSector){
         IcesiDatabase icesiDataBase = new IcesiDatabase();
         icesiDataBase.insertMeasurement(measurement, idSector);
         icesiDataBase.closeConnection();
