@@ -124,7 +124,7 @@ public class IcesiDatabase {
     public ArrayList<Measurement> getAllMeasurements(){
         ArrayList<Measurement> measurements = new ArrayList<>();
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT *FROM engineer");
+            ResultSet resultSet = statement.executeQuery("SELECT *FROM measurement");
 
             while(resultSet.next()){
                 String id = resultSet.getString(1);
@@ -132,14 +132,12 @@ public class IcesiDatabase {
                 double humidity = Double.parseDouble(resultSet.getString(3));
                 double co2 = Double.parseDouble(resultSet.getString(4));
                 double temperature = Double.parseDouble(resultSet.getString(5));
-                Date measurementDate = new SimpleDateFormat("dd/MM/yyyy").parse(resultSet.getString(6));
+                long measurementDate = Long.parseLong(resultSet.getString(6));
                 Measurement measurement = new Measurement(id,ph,humidity,co2,temperature,measurementDate);
                 measurements.add(measurement);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         return measurements;
@@ -156,14 +154,12 @@ public class IcesiDatabase {
                 double humidity = Double.parseDouble(resultSet.getString(3));
                 double co2 = Double.parseDouble(resultSet.getString(4));
                 double temperature = Double.parseDouble(resultSet.getString(5));
-                Date measurementDate = new SimpleDateFormat("dd/MM/yyyy").parse(resultSet.getString(6));
+                long measurementDate = Long.parseLong(resultSet.getString(6));
                 Measurement measurement = new Measurement(idM,ph,humidity,co2,temperature,measurementDate);
                 return measurement;
             }
             statement.executeQuery(sql);
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         Measurement measurement = new Measurement();
@@ -258,14 +254,12 @@ public class IcesiDatabase {
                 double humidity = Double.parseDouble(resultSet.getString(3));
                 double co2 = Double.parseDouble(resultSet.getString(4));
                 double temperature = Double.parseDouble(resultSet.getString(5));
-                Date measurementDate = new SimpleDateFormat("dd/MM/yyyy").parse(resultSet.getString(6));
+                long measurementDate = Long.parseLong(resultSet.getString(6));
                 Measurement measurement = new Measurement(id,ph,humidity,co2,temperature,measurementDate);
                 measurements.add(measurement);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         return measurements;

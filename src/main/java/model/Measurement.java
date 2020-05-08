@@ -9,9 +9,9 @@ public class Measurement {
     private double humidity;
     private double co2;
     private double temperature;
-    private Date dateTime;
+    private long dateTime;
 
-    public Measurement(String id, double pH, double humidity, double co2, double temperature, Date dateTime) {
+    public Measurement(String id, double pH, double humidity, double co2, double temperature, long dateTime) {
         this.id = id;
         this.pH = pH;
         this.humidity = humidity;
@@ -63,11 +63,11 @@ public class Measurement {
         this.temperature = temperature;
     }
 
-    public Date getDateTime() {
+    public long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Date dateTime) {
+    public void setDateTime(long dateTime) {
         this.dateTime = dateTime;
     }
 
