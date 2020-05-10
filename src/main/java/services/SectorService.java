@@ -12,14 +12,14 @@ import java.util.ArrayList;
 public class SectorService {
     @Path("insert")
     @POST
-    public void registerSector(String id,String idEngAssigned){
+    public void registerSector(@QueryParam("id") String id,@QueryParam("idEndAssigned") String idEngAssigned){
         IcesiDatabase icesiDataBase = new IcesiDatabase();
         icesiDataBase.insertSector(id,idEngAssigned);
         icesiDataBase.closeConnection();
     }
     @PUT
     @Path("update")
-    public void modifySector(String id, String idEngAssigned){
+    public void modifySector(@QueryParam("id") String id, @QueryParam("idEngAssigned") String idEngAssigned){
         IcesiDatabase icesiDataBase = new IcesiDatabase();
         icesiDataBase.modifySector(id, idEngAssigned);
         icesiDataBase.closeConnection();
