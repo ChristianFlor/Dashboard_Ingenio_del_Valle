@@ -12,13 +12,13 @@ public class Simulation {
 
     public static final Double MIN_PH = 0.0;
     public static final Double MIN_HUM = 0.0;
-    public static final Double MIN_TEMP = 0.0;
+    public static final Double MIN_TEMP = 15.0;
     public static final Double MIN_CO2 = 0.0;
 
-    public static final Double MAX_PH = 0.0;
-    public static final Double MAX_HUM = 0.0;
-    public static final Double MAX_TEMP = 0.0;
-    public static final Double MAX_CO2 = 0.0;
+    public static final Double MAX_PH = 14.0;
+    public static final Double MAX_HUM = 100.0;
+    public static final Double MAX_TEMP = 32.0;
+    public static final Double MAX_CO2 = 100.0;
 
     public Simulation() {
     }
