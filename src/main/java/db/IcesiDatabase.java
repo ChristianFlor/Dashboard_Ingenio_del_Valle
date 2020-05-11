@@ -12,8 +12,9 @@ import java.util.Date;
 public class IcesiDatabase {
     private Connection connection;
     private Statement statement;
+    private boolean busy = false;
 
-    public IcesiDatabase() {
+    public IcesiDatabase() throws SQLException {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://200.3.193.22:3306/P09728_1_11", "P09728_1_11", "ZCSaQGZU");
@@ -284,9 +285,11 @@ public class IcesiDatabase {
         return sectores;
     }
 
+    public boolean isBusy() {
+        return busy;
+    }
 
-
-
-
-
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
 }
