@@ -1,5 +1,6 @@
 package services;
 
+import db.ConnectionPool;
 import db.IcesiDatabase;
 import model.Engineer;
 
@@ -18,9 +19,9 @@ public class EngineerService {
     @Consumes("application/json")//recibo
     @Produces("application/json")//enviar
     public Engineer registerEngineer(Engineer engineer){
-        IcesiDatabase icesiDataBase = new IcesiDatabase();
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
         icesiDataBase.insertEngineer(engineer);
-        icesiDataBase.closeConnection();
+        icesiDataBase.setBusy(false);
         return engineer;
     }
 
@@ -29,9 +30,9 @@ public class EngineerService {
     @Path("getall")
     @Produces("application/json")
     public ArrayList<Engineer> getAllEngineers(){
-        IcesiDatabase icesiDataBase = new IcesiDatabase();
+        IcesiDatabase icesiDataBase =  ConnectionPool.getAvailableConnection();
         ArrayList<Engineer> engineers = icesiDataBase.getAllEngineers();
-        icesiDataBase.closeConnection();
+        icesiDataBase.setBusy(false);
         return engineers;
     }
 
@@ -40,9 +41,9 @@ public class EngineerService {
     @Path("byid")
     @Produces("application/json")
     public Engineer getEngineerByID(@QueryParam("id") String id){
-        IcesiDatabase icesiDataBase = new IcesiDatabase();
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
         Engineer engineer = icesiDataBase.getEngineerByID(id);
-        icesiDataBase.closeConnection();
+        icesiDataBase.setBusy(false);
         return engineer;
     }
 
@@ -53,26 +54,26 @@ public class EngineerService {
     @Consumes("application/json")
     @Produces("application/json")
     public Engineer modifyEngineer(Engineer engineer){
-        IcesiDatabase icesiDataBase = new IcesiDatabase();
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
         icesiDataBase.modifyEnginner(engineer);
-        icesiDataBase.closeConnection();
+        icesiDataBase.setBusy(false);
         return engineer;
     }
 
     @DELETE
     @Path("delete/{id}")
     public void deleteEngineerByID(@PathParam("id")String id){
-        IcesiDatabase icesiDataBase = new IcesiDatabase();
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
         icesiDataBase.deleteEngineerById(id);
-        icesiDataBase.closeConnection();
+        icesiDataBase.setBusy(false);
     }
     @GET
     @Path("list/{engineerID}")
     @Produces("application/json")
     public ArrayList<String> getListSectors(@PathParam("engineerID") String engineerID){
-        IcesiDatabase icesiDataBase = new IcesiDatabase();
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
         ArrayList<String> sectors = icesiDataBase.getListSectores(engineerID);
-        icesiDataBase.closeConnection();
+        icesiDataBase.setBusy(false);
         return sectors;
     }
 
