@@ -15,6 +15,7 @@ public class SectorService {
     @POST
     public void registerSector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){
         IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
+
         icesiDataBase.insertSector(id,idEngAssigned);
         icesiDataBase.setBusy(false);
     }
@@ -22,6 +23,7 @@ public class SectorService {
     @Path("update/{id}/{idEng}")
     public void modifySector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){
         IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
+
         icesiDataBase.modifySector(id, idEngAssigned);
         icesiDataBase.setBusy(false);
     }

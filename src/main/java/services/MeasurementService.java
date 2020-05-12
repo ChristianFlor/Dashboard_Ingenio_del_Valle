@@ -11,6 +11,7 @@ import java.util.ArrayList;
 @Stateless
 @Path("measurement")
 public class MeasurementService {
+
     @Path("insert/{idSector}")
     @POST
     @Consumes("application/json")//recibo
