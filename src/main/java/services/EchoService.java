@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
 public class EchoService {
 
     @GET
-    @Path("login")
+    @Path("echoing")
     public String index(){
         return "echo";
     }

@@ -340,20 +340,58 @@
 
             <div class="col-xl-8 col-lg-7">
 
-              <!-- Area Chart -->
+              <!-- Area Chart PH-->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Simulation PH</h6>
                 </div>
                 <div class="card-body">
                   <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
+                    <canvas id="phAreaChart"></canvas>
                   </div>
                   <hr>
                   Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
                 </div>
               </div>
-
+              <!-- Area Chart Temperature-->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Simulation Temperature</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="temperatureAreaChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                </div>
+              </div>
+              <!-- Area Chart Humidity-->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Simulation Humidity</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="humidityAreaChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                </div>
+              </div>
+              <!-- Area Chart CO2-->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Simulation CO2</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-area">
+                    <canvas id="co2AreaChart"></canvas>
+                  </div>
+                  <hr>
+                  Styling for the area chart can be found in the <code>/js/demo/chart-area-demo.js</code> file.
+                </div>
+              </div>
               <!-- Bar Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -449,7 +487,7 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/simulation.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/demo/chart-bar-demo.js"></script>
 
