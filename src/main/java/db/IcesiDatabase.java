@@ -98,7 +98,24 @@ public class IcesiDatabase {
         }
         return  engineers;
     }
+    public Engineer validar(String username, String password){
 
+        String sql = "SELECT * FROM engineer WHERE username = '%USERNAME%' AND pass = '%PASS%'";
+
+        sql = sql.replace("%USERNAME%",username).replace("%PASS%",password);
+        try {
+            ResultSet resultSet =statement.executeQuery(sql);
+
+            if(resultSet.next()){
+                Engineer e= new Engineer(resultSet.getString(1));
+                return e;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new Engineer();
+    }
     public Engineer getEngineerByID(String id){
         String sql = "SELECT * FROM engineer WHERE id = '%ID%'";
         sql = sql.replace("%ID%",id);
