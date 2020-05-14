@@ -24,7 +24,16 @@ public class EngineerService {
         icesiDataBase.setBusy(false);
         return engineer;
     }
-
+    @Path("login/{username}/{password}")
+    @GET
+    @Produces("application/json")//enviar
+    public Engineer validationEngineer(@PathParam("username") String username, @PathParam("password") String password){
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
+        Engineer valid= icesiDataBase.validar(username,password);
+        icesiDataBase.setBusy(false);
+        System.out.println(valid.getUsername()+"\t"+valid.getPassword());
+        return valid;
+    }
     //Obtener lista de ingenieros
     @GET
     @Path("getall")
