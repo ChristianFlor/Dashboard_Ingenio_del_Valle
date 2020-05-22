@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Charts</title>
+  <title>Assign Sector</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,6 +18,14 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <style>
+    td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
+
+.selected {
+    background-color: brown;
+    color: #FFF;
+}
+  </style>
 </head>
 
 <body id="page-top">
@@ -40,7 +48,7 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -71,19 +79,21 @@
           </div>
         </div>
       </li>
+
       <li class="nav-item">
         <a class="nav-link" href="assign-sector.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Assign Sector</span></a>
       </li>
-      
+
       <!-- Nav Item - Charts -->
       <li class="nav-item">
         <a class="nav-link" href="simulationData.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Simulation Data</span></a>
       </li>
-      
+
+     
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -118,6 +128,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
+    
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -139,7 +150,7 @@
                 </a>
                 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" id="logoutBTN">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -155,61 +166,130 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-          <p class="mb-4">Displaying The Simulation of the Measurements</p>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <div class="col-xl-8 col-lg-7">
-
-              <!-- Area Chart PH-->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Simulation PH</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="phAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-              <!-- Area Chart Temperature-->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Simulation Temperature</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="temperatureAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-              <!-- Area Chart Humidity-->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Simulation Humidity</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="humidityAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-              <!-- Area Chart CO2-->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Simulation CO2</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="co2AreaChart"></canvas>
-                  </div>
-                </div>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Assign Sector</h1>
+          </div>
+          
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Enginieers
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Carlos Gonzalez</button>
+                <button class="dropdown-item" type="button">Maria Ordoñez</button>
+                <button class="dropdown-item" type="button">Laura Sanchez</button>
+                <button class="dropdown-item" type="button">Alejandra Restrepo</button>
+                <button class="dropdown-item" type="button">Sebastian Alvarez</button>
+                <button class="dropdown-item" type="button">Camilo Campaz</button>
               </div>
             </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sectors
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">01</button>
+                <button class="dropdown-item" type="button">02</button>
+                <button class="dropdown-item" type="button">03</button>
+                <button class="dropdown-item" type="button">04</button>
+                <button class="dropdown-item" type="button">05</button>
+                <button class="dropdown-item" type="button">06</button>
+                <button class="dropdown-item" type="button">07</button>
+                <button class="dropdown-item" type="button">08</button>
+                <button class="dropdown-item" type="button">09</button>
+                <button class="dropdown-item" type="button">10</button>
+              </div>
+            </div>
+          </li>
+          </ul>
+          
+          <br></br> 
+          <div class="row">
+          <div class="col-xl-8 col-lg-7">
+          <ul class="list-group">
+            <li class="list-group-item">Laura Sanchez</li>
+          </ul>
           </div>
-
+         
+          <ul class="list-group">
+            <li class="list-group-item">01</li>
+            <li class="list-group-item">02</li>
+            <li class="list-group-item">03</li>
+            <li class="list-group-item">04</li>
+          </ul>
+          </div>
+          <br></br> 
+          <div class="row text-center">
+            <div class="col text-center"><button type="submit"
+                    class="btn btn-success expand" onclick="getTableData()">Assign</button>
+            </div>
+          </div>
+          <hr></hr>
+          <br></br> 
+          <div class="table-responsive">
+            <table class="table table-hover" id="table">
+              <tr>
+                  <td>1 Ferrari F138</td>
+                  <td>1 000€</td>
+                  <td>1 200€</td>
+                  <td>Model monopostu stajne Scuderia Ferrari pre sezónu 2013</td>
+                  <td>1</td>
+                  <td>F138</td>
+                  <td>Klik pre detaily</td>
+              </tr>
+              <tr>
+                  <td>2 Ferrari F138</td>
+                  <td>1 000€</td>
+                  <td>1 200€</td>
+                  <td>Model monopostu stajne Scuderia Ferrari pre sezónu 2013</td>
+                  <td>1</td>
+                  <td>F138</td>
+                  <td>Klik pre detaily</td>
+              </tr>
+              <tr>
+                  <td>3 Ferrari F138</td>
+                  <td>1 000€</td>
+                  <td>1 200€</td>
+                  <td>Model monopostu stajne Scuderia Ferrari pre sezónu 2013</td>
+                  <td>1</td>
+                  <td>F138</td>
+                  <td>Klik pre detaily</td>
+              </tr>
+          </table>
+          </div>
+          <div class="row text-center">
+            <div class="col text-center">
+              <input class="btn btn-success" type="button" id="tst" value="Select Engineer" onclick="fnselect()" />
+            </div>
+          </div>
+        
+        <br></br> 
+       
+       
+        <div class="list-group list-group-horizontal">
+          
+          <button type="button" class="list-group-item list-group-item-action">01</button>
+          <button type="button" class="list-group-item list-group-item-action">02</button>
+          <button type="button" class="list-group-item list-group-item-action">03</button>
+          <button type="button" class="list-group-item list-group-item-action active">04</button>
+          <button type="button" class="list-group-item list-group-item-action">05</button>
+          <button type="button" class="list-group-item list-group-item-action">06</button>
+          <button type="button" class="list-group-item list-group-item-action">07</button>
+          <button type="button" class="list-group-item list-group-item-action active">08</button>
+          <button type="button" class="list-group-item list-group-item-action">09</button>
+          <button type="button" class="list-group-item list-group-item-action">10</button>
+        </div>
+        <br></br> 
+        <div class="row text-center">
+          <div class="col text-center"><button type="submit"
+                  class="btn btn-success expand" onclick="getTableData()">Assign</button>
+          </div>
+        </div>
+         
         </div>
         <!-- /.container-fluid -->
 
@@ -265,12 +345,29 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+  <script>
+   function highlight(e) {
+    if (selected[0]) selected[0].className = '';
+    e.target.parentNode.className = 'selected';
+    
+}
 
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+var table = document.getElementById('table'),
+    selected = table.getElementsByClassName('selected');
+table.onclick = highlight;
 
-  <!-- Page level custom scripts -->
-  <script src="js/simulation.js"></script>
+function fnselect(){
+var $row=$(this).parent().find('td');
+    var clickeedID=$row.eq(0).text();
+   // alert(clickeedID);
+}
+
+$("#tst").click(function(){
+    var value =$(".selected td:first").html();
+    value = value || "No row Selected";
+    alert(value);
+});
+  </script>
 
 </body>
 
