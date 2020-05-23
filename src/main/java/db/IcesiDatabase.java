@@ -283,6 +283,21 @@ public class IcesiDatabase {
         return measurements;
     }
 
+    public ArrayList<String> getAllSectores(){
+        ArrayList<String> sectores = new ArrayList<>();
+        String sql = "SELECT*FROM sector";
+        try {
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                String id = resultSet.getString(1);
+                sectores.add(id);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sectores;
+    }
+
     //Lista de sectores de un ingeniero
     public ArrayList<String> getListSectores(String idEngAssigned){
         ArrayList<String> sectores = new ArrayList<>();

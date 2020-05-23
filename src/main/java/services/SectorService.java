@@ -46,4 +46,14 @@ public class SectorService {
         return measurements;
     }
 
+    @GET
+    @Path("getall")
+    @Produces("application/json")
+    public ArrayList<String> getAllSectores(){
+        IcesiDatabase icesiDatabase = ConnectionPool.getAvailableConnection();
+        ArrayList<String> sectores = icesiDatabase.getAllSectores();
+        icesiDatabase.setBusy(false);
+        return sectores;
+    }
+
 }
