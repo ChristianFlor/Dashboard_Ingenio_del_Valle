@@ -4,7 +4,6 @@ const inputID = document.getElementById("inputID");
 const inputUsernameRegister = document.getElementById("inputUsernameRegister");
 const inputEmail = document.getElementById("inputEmail");
 const inputPassword = document.getElementById("inputPassword");
-const repeatPassword = document.getElementById("repeatPassword");
 const registerBTN = document.getElementById("registerBTN");
 
 const  localStorage = window.localStorage;
@@ -22,13 +21,7 @@ function register() {
     console.log(username);
     var email = inputEmail.value;
     console.log(email);
-    /*if(inputPassword.value == repeatPassword.value){
-        var passaword = inputPassword;
-    }
-    else{
-        var nScript = document.createElement("script");
-        nScript.appendChild(alert("La contraseñas no coinciden"));
-    }*/
+
     var password = inputPassword.value;
     console.log(password);
 

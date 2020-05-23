@@ -73,8 +73,16 @@ public class IcesiDatabase {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
 
-
+    public void insertSector(String id){
+        String sql = "INSERT INTO sector(id) VALUES ('%ID%')";
+        sql = sql.replace("%ID%",id);
+        try {
+            statement.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<Engineer> getAllEngineers(){

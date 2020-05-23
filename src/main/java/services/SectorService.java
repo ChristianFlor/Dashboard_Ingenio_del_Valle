@@ -11,14 +11,23 @@ import java.util.ArrayList;
 @Stateless
 @Path("sector")
 public class SectorService {
-    @Path("insert/{id}/{idEng}")
-    @POST
-    public void registerSector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){
-        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
 
+    @Path("insert/{id}")
+    @POST
+    public void registerSector(@PathParam("id")String id){
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
+        icesiDataBase.insertSector(id);
+        icesiDataBase.setBusy(false);
+    }
+
+    @Path("assign/{id}/{idEng}")
+    @POST
+    public void assignSector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
         icesiDataBase.insertSector(id,idEngAssigned);
         icesiDataBase.setBusy(false);
     }
+
     @PUT
     @Path("update/{id}/{idEng}")
     public void modifySector(@PathParam("id")String id,@PathParam("idEng") String idEngAssigned){

@@ -106,11 +106,5 @@ function highlight(e) {
     e.target.parentNode.className = 'selected';
 
 }
-/*
-function fnselect(){
-    var $row=$(this).parent().find('td');
-    var clickeedID=$row.eq(0).text();
-    // alert(clickeedID);
-}*/
 
 
