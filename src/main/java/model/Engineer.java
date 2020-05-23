@@ -23,7 +23,11 @@ public class Engineer {
         this.measurements = new HashMap<>();
     }
 
+    public Engineer(String id) {
+        this.id = id;
+    }
     public Engineer() {
+
     }
 
     public String getName() {

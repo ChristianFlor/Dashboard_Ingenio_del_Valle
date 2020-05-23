@@ -12,8 +12,9 @@ import java.util.Date;
 public class IcesiDatabase {
     private Connection connection;
     private Statement statement;
+    private boolean busy = false;
 
-    public IcesiDatabase() {
+    public IcesiDatabase() throws SQLException {
         try {
             Class.forName("org.mariadb.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://200.3.193.22:3306/P09728_1_11", "P09728_1_11", "ZCSaQGZU");
@@ -32,10 +33,10 @@ public class IcesiDatabase {
     }
 
     public void insertEngineer(Engineer engineer){
-        String sql= "INSERT INTO engineer(id,name,lastname,email,username,pass) VALUES ('%ID%','%NAME%','%LASTNAME%','%EMAIL%','%USERNAME%','%PASS%')";
+        String sql= "INSERT INTO engineer(id,nameEngineer,lastname,email,username,pass) VALUES ('%ID%','%NAMEENGINEER%','%LASTNAME%','%EMAIL%','%USERNAME%','%PASS%')";
         sql = sql.replace("%ID%",engineer.getId());
-        sql = sql.replace("%NAME%",engineer.getName());
-        sql = sql.replace("%LASTNAME%%",engineer.getLastname());
+        sql = sql.replace("%NAMEENGINEER%",engineer.getName());
+        sql = sql.replace("%LASTNAME%",engineer.getLastname());
         sql = sql.replace("%EMAIL%",engineer.getEmail());
         sql = sql.replace("%USERNAME%",engineer.getUsername());
         sql = sql.replace("%PASS%",engineer.getPassword());
@@ -55,7 +56,7 @@ public class IcesiDatabase {
         sql = sql.replace("%CO2%",measurement.getCo2()+"");
         sql = sql.replace("%TEMPERATURE%",measurement.getTemperature()+"");
         sql = sql.replace("%MEASUREMENTDATE%",measurement.getDateTime()+"");
-        sql = sql.replace("IDSECTOR",idSector);
+        sql = sql.replace("%IDSECTOR%",idSector);
         try {
             statement.execute(sql);
         } catch (SQLException e) {
@@ -97,7 +98,24 @@ public class IcesiDatabase {
         }
         return  engineers;
     }
+    public Engineer validar(String username, String password){
 
+        String sql = "SELECT * FROM engineer WHERE username = '%USERNAME%' AND pass = '%PASS%'";
+
+        sql = sql.replace("%USERNAME%",username).replace("%PASS%",password);
+        try {
+            ResultSet resultSet =statement.executeQuery(sql);
+
+            if(resultSet.next()){
+                Engineer e= new Engineer(resultSet.getString(1));
+                return e;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new Engineer();
+    }
     public Engineer getEngineerByID(String id){
         String sql = "SELECT * FROM engineer WHERE id = '%ID%'";
         sql = sql.replace("%ID%",id);
@@ -124,7 +142,7 @@ public class IcesiDatabase {
     public ArrayList<Measurement> getAllMeasurements(){
         ArrayList<Measurement> measurements = new ArrayList<>();
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT *FROM engineer");
+            ResultSet resultSet = statement.executeQuery("SELECT *FROM measurement");
 
             while(resultSet.next()){
                 String id = resultSet.getString(1);
@@ -132,14 +150,12 @@ public class IcesiDatabase {
                 double humidity = Double.parseDouble(resultSet.getString(3));
                 double co2 = Double.parseDouble(resultSet.getString(4));
                 double temperature = Double.parseDouble(resultSet.getString(5));
-                Date measurementDate = new SimpleDateFormat("dd/MM/yyyy").parse(resultSet.getString(6));
+                long measurementDate = Long.parseLong(resultSet.getString(6));
                 Measurement measurement = new Measurement(id,ph,humidity,co2,temperature,measurementDate);
                 measurements.add(measurement);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         return measurements;
@@ -156,14 +172,12 @@ public class IcesiDatabase {
                 double humidity = Double.parseDouble(resultSet.getString(3));
                 double co2 = Double.parseDouble(resultSet.getString(4));
                 double temperature = Double.parseDouble(resultSet.getString(5));
-                Date measurementDate = new SimpleDateFormat("dd/MM/yyyy").parse(resultSet.getString(6));
+                long measurementDate = Long.parseLong(resultSet.getString(6));
                 Measurement measurement = new Measurement(idM,ph,humidity,co2,temperature,measurementDate);
                 return measurement;
             }
             statement.executeQuery(sql);
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         Measurement measurement = new Measurement();
@@ -171,11 +185,11 @@ public class IcesiDatabase {
     }
 
     public void modifyEnginner(Engineer engineer){
-        String sql = "UPDATE engineer SET name ='%NAME%',lastname='%LASTNAME%',email = '%EMAIL%'," +
+        String sql = "UPDATE engineer SET nameEngineer ='%NAME%',lastname='%LASTNAME%',email = '%EMAIL%'," +
                 "username = '%USERNAME%',pass = '%PASS%' WHERE id='%ID%'";
         sql = sql.replace("%ID%",engineer.getId());
         sql = sql.replace("%NAME%",engineer.getName());
-        sql = sql.replace("%LASTNAME%%",engineer.getLastname());
+        sql = sql.replace("%LASTNAME%",engineer.getLastname());
         sql = sql.replace("%EMAIL%",engineer.getEmail());
         sql = sql.replace("%USERNAME%",engineer.getUsername());
         sql = sql.replace("%PASS%",engineer.getPassword());
@@ -258,14 +272,12 @@ public class IcesiDatabase {
                 double humidity = Double.parseDouble(resultSet.getString(3));
                 double co2 = Double.parseDouble(resultSet.getString(4));
                 double temperature = Double.parseDouble(resultSet.getString(5));
-                Date measurementDate = new SimpleDateFormat("dd/MM/yyyy").parse(resultSet.getString(6));
+                long measurementDate = Long.parseLong(resultSet.getString(6));
                 Measurement measurement = new Measurement(id,ph,humidity,co2,temperature,measurementDate);
                 measurements.add(measurement);
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
             e.printStackTrace();
         }
         return measurements;
@@ -290,9 +302,11 @@ public class IcesiDatabase {
         return sectores;
     }
 
+    public boolean isBusy() {
+        return busy;
+    }
 
-
-
-
-
+    public void setBusy(boolean busy) {
+        this.busy = busy;
+    }
 }
