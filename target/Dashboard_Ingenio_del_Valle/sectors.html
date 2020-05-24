@@ -166,122 +166,8 @@
           <div class="text-center">
             <h1>Sectors</h1>
           </div>
-          <div class="row row-cols-1 row-cols-md-3">
-            <!-- Collapsable Card Example -->
-            <div class="col mb-4 ">
-              <div class="card shadow mb-3">
-                <!-- Card Header - Accordion -->
-                <a href="#sector1" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Sector 01</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="sector1">
-                  <div class="card-body">
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation PH</h6>
-                    <div class="chart-area">
-                      <canvas id="phAreaChart"></canvas>
-                    </div>
-                    <hr></hr>
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation Temperature</h6>
-                    <div class="chart-area">
-                      <canvas id="temperatureAreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Collapsable Card Example -->
-            <div class="col mb-4 ">
-              <div class="card shadow mb-3">
-                <!-- Card Header - Accordion -->
-                <a href="#sector2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Sector 02</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="sector2">
-                  <div class="card-body">
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation Humidity</h6>
-                    <div class="chart-area">
-                      <canvas id="humidityAreaChart"></canvas>
-                    </div>
-                    <hr></hr>
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation CO2</h6>
-                    <div class="chart-area">
-                      <canvas id="co2AreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Collapsable Card Example -->
-            <div class="col mb-4 ">
-              <div class="card shadow mb-3">
-                <!-- Card Header - Accordion -->
-                <a href="#sector3" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Sector 03</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="sector3">
-                  <div class="card-body">
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation PH</h6>
-                    <div class="chart-area">
-                      <canvas id="phAreaChart"></canvas>
-                    </div>
-                    <hr></hr>
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation Humidity</h6>
-                    <div class="chart-area">
-                      <canvas id="humidityAreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Collapsable Card Example -->
-            <div class="col mb-4 ">
-              <div class="card shadow mb-3">
-                <!-- Card Header - Accordion -->
-                <a href="#sector4" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Sector 04</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="sector4">
-                  <div class="card-body">
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation CO2</h6>
-                    <div class="chart-area">
-                      <canvas id="co2AreaChart"></canvas>
-                    </div>
-                    <hr></hr>
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation Temperature</h6>
-                    <div class="chart-area">
-                      <canvas id="temperatureAreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-             <!-- Collapsable Card Example -->
-             <div class="col mb-4 ">
-              <div class="card shadow mb-3">
-                <!-- Card Header - Accordion -->
-                <a href="#sector5" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-                  <h6 class="m-0 font-weight-bold text-primary">Sector 05</h6>
-                </a>
-                <!-- Card Content - Collapse -->
-                <div class="collapse show" id="sector5">
-                  <div class="card-body">
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation PH</h6>
-                    <div class="chart-area">
-                      <canvas id="phAreaChart"></canvas>
-                    </div>
-                    <hr></hr>
-                    <h6 class="m-0 font-weight-bold text-primary">Simulation CO2</h6>
-                    <div class="chart-area">
-                      <canvas id="co2AreaChart"></canvas>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="row row-cols-1 row-cols-md-3" id="sectorContainer">
+
           </div>
           
          
@@ -345,7 +231,8 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/simulation.js"></script>
+  <script src="js/control/sectors.js"></script>
+
 
 </body>
 

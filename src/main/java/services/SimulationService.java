@@ -1,14 +1,14 @@
 package services;
 
-        import db.ConnectionPool;
-        import db.IcesiDatabase;
-        import model.Measurement;
-        import model.Simulation;
+import db.ConnectionPool;
+import db.IcesiDatabase;
+import model.Measurement;
+import model.Simulation;
 
-        import javax.ejb.Stateless;
-        import javax.ws.rs.*;
-        import java.lang.reflect.Array;
-        import java.util.ArrayList;
+import javax.ejb.Stateless;
+import javax.ws.rs.*;
+import java.util.ArrayList;
+import java.util.UUID;
 
 @Stateless
 @Path("simulation")
@@ -19,8 +19,6 @@ public class SimulationService {
     @Produces("application/json")
     public ArrayList<Double> simulate(@PathParam("mode") String mode, @PathParam("periodNum") String periodNum) {
         Simulation simulation = new Simulation();
-        System.out.println(mode.charAt(0)+" "+periodNum);
-
         return simulation.simulate(mode.charAt(0), Integer.parseInt(periodNum));
     }
     @GET
@@ -44,6 +42,24 @@ public class SimulationService {
         arrayLists.add(hum);
         arrayLists.add(co2);
         arrayLists.add(temperature);
+        icesiDatabase.setBusy(false);
         return arrayLists;
+    }
+
+    @POST
+    @Path("produce/{sector}/{num}")
+    public void postSimulation(@PathParam("sector")String sector,@PathParam("num") String num) {
+        IcesiDatabase icesiDatabase = ConnectionPool.getAvailableConnection();
+        int n = Integer.parseInt(num);
+        Simulation simulation = new Simulation();
+        ArrayList<Double> ph = simulation.simulate(Simulation.PH,n);
+        ArrayList<Double> hum = simulation.simulate(Simulation.HUMIDITY,n);
+        ArrayList<Double> co2 = simulation.simulate(Simulation.CO2,n);
+        ArrayList<Double> temperature = simulation.simulate(Simulation.TEMPERATURE,n);
+        for (int i = 0; i < n; i++) {
+            Measurement measurement = new Measurement(UUID.randomUUID().toString(),ph.get(i),hum.get(i),co2.get(i),temperature.get(i),Long.parseLong("0"));
+            icesiDatabase.insertMeasurement(measurement,sector);
+        }
+        icesiDatabase.setBusy(false);
     }
 }
