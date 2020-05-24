@@ -17,6 +17,14 @@ function init(){
 function loadTableEngineer() {
     tableEngineer.innerHTML = "";
     var xhr = new XMLHttpRequest();
+    var tr = document.createElement("tr");
+    var th= document.createElement("th");
+    th.innerHTML= "Listado de ingenieros";
+    th.className="text-center";
+    th.scope="col";
+    th.colSpan=6;
+    tr.append(th);
+    tableEngineer.appendChild(tr);
     xhr.onloadend = function () {
         var objects = JSON.parse(xhr.responseText);
         for(let i = 0; i<objects.length; i++){
@@ -106,5 +114,3 @@ function highlight(e) {
     e.target.parentNode.className = 'selected';
 
 }
-
-
