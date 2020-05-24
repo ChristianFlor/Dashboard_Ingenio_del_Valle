@@ -1,9 +1,11 @@
 const sectorContainer = document.getElementById("sectorContainer");
-const allowedSectors = ["1", "2", "3", "4", "5"];
+const allowedSectors = ["01", "02", "03", "04", "05"];
+const key = JSON.parse(localStorage.getItem("key"));
 
 document.addEventListener("DOMContentLoaded", function () {
     for (let x in allowedSectors) {
         sectorContainer.appendChild(createSectorDisplay(x));
+        requestData(x);
     }
 });
 
@@ -22,7 +24,6 @@ function createSectorDisplay(sector) {
     createAreaChart(sector, "hum", p4);
     createAreaChart(sector, "co2", p4);
     createAreaChart(sector, "temp", p4);
-    requestData(sector);
     p3.appendChild(p4);
     p2.append(aCol);
     p2.appendChild(p3);
@@ -55,6 +56,10 @@ function requestData(sector) {
         let humData = data.get(1);
         let co2Data = data.get(2);
         let tempData = data.get(3);
+        setDataAreaChart(phData, sector, "ph");
+        setDataAreaChart(humData, sector, "hum");
+        setDataAreaChart(co2Data, sector, "co2");
+        setDataAreaChart(tempData, sector, "temp");
     };
     xhr.open("GET","api/simulation/get/data/"+sector);
     xhr.send();
