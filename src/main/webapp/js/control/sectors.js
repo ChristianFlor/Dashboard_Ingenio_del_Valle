@@ -7,19 +7,18 @@ const asign_sectorsHRef="assign-sector.html";
 const assing_sectorI="fas fa-fw fa-user";
 const assign_sectorName="Assign Sector";
 document.addEventListener("DOMContentLoaded", function () {
-    let allowedSectors = [];
     let xhr = new XMLHttpRequest();
     xhr.onloadend = function(){
-        allowedSectors = JSON.parse(xhr.responseText);
+        let allowedSectors = JSON.parse(xhr.responseText);
+        allowedSectors.forEach(e => {
+            sectorContainer.appendChild(createSectorDisplay(e));
+            requestData(e);
+        });
+        console.log(key.id);
+        loadUser();
     }
     xhr.open("GET", "api/simulation/allowed/" + key.id);
     xhr.send()
-    allowedSectors.forEach(e => {
-        sectorContainer.appendChild(createSectorDisplay(e));
-        requestData(e);
-    });
-    console.log(key.id);
-    loadUser();
 });
 function loadUser() {
     console.log(key.name);
