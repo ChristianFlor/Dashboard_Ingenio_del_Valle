@@ -1,34 +1,30 @@
 const sectorContainer = document.getElementById("sectorContainer");
 const key = JSON.parse(localStorage.getItem("key"));
+const pages = document.getElementById("pages");
+
 const sectorsHRef="sectors.html";
 const sectorI="fas fa-fw fa-tachometer-alt";
 const sectorName = "Sectors";
-const asign_sectorsHRef="assign-sector.html";
-const assing_sectorI="fas fa-fw fa-user";
-const assign_sectorName="Assign Sector";
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    let allowedSectors = [];
     let xhr = new XMLHttpRequest();
     xhr.onloadend = function(){
-        allowedSectors = JSON.parse(xhr.responseText);
+        let allowedSectors = JSON.parse(xhr.responseText);
+        allowedSectors.forEach(e => {
+            sectorContainer.appendChild(createSectorDisplay(e));
+            requestData(e);
+        });
+        console.log(key.id);
+        loadUser();
     }
     xhr.open("GET", "api/simulation/allowed/" + key.id);
     xhr.send()
-    allowedSectors.forEach(e => {
-        sectorContainer.appendChild(createSectorDisplay(e));
-        requestData(e);
-    });
-    console.log(key.id);
-    loadUser();
 });
 function loadUser() {
     console.log(key.name);
     user.innerHTML = key.name;
-    if(key.username === "admin" && key.password === "admin"){
-        loadPagesUser(asign_sectorsHRef,assing_sectorI,assign_sectorName);
-    }else{
-        loadPagesUser(sectorsHRef,sectorI,sectorName);
-    }
+    loadPagesUser(sectorsHRef,sectorI,sectorName);
 }
 function loadPagesUser(hrefS, iClassName, name) {
     pages.innerHTML="";
@@ -42,6 +38,7 @@ function loadPagesUser(hrefS, iClassName, name) {
     a.append(i,span);
     pages.appendChild(a);
 }
+
 function createSectorDisplay(sector) {
     let p1 = document.createElement("div");
     p1.className = "col mb-4";
