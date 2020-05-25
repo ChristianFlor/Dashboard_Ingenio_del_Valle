@@ -12,23 +12,15 @@ registerBTN.addEventListener("click",register);
 
 function register() {
     var id = inputID.value;
-    console.log(id);
     var name = firstName.value;
-    console.log(name);
     var lastname = lastName.value;
-    console.log(lastname);
     var username = inputUsernameRegister.value;
-    console.log(username);
     var email = inputEmail.value;
-    console.log(email);
-
     var password = inputPassword.value;
-    console.log(password);
 
     var engineer = new Engineer(name,lastname,id,username,password,email);
 
     var json = engineer.toJson();
-    console.log(json);
 
     var xhr = new XMLHttpRequest();
     xhr.onloadend = function(){
