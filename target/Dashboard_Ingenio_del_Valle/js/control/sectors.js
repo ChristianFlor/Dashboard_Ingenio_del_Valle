@@ -1,14 +1,41 @@
 const sectorContainer = document.getElementById("sectorContainer");
 const allowedSectors = ["01", "02", "03", "04", "05"];
 const key = JSON.parse(localStorage.getItem("key"));
+const sectorsHRef="sectors.html";
+const sectorI="fas fa-fw fa-tachometer-alt";
+const sectorName = "Sectors";
 
+const asign_sectorsHRef="assign-sector.html";
+const assing_sectorI="fas fa-fw fa-user";
+const assign_sectorName="Assign Sector";
 document.addEventListener("DOMContentLoaded", function () {
     allowedSectors.forEach(e => {
         sectorContainer.appendChild(createSectorDisplay(e));
         requestData(e);
     });
+    loadUser();
 });
-
+function loadUser() {
+    console.log(key.name);
+    user.innerHTML = key.name;
+    if(key.username === "admin" && key.password === "admin"){
+        loadPagesUser(asign_sectorsHRef,assing_sectorI,assign_sectorName);
+    }else{
+        loadPagesUser(sectorsHRef,sectorI,sectorName);
+    }
+}
+function loadPagesUser(hrefS, iClassName, name) {
+    pages.innerHTML="";
+    var a= document.createElement("a");
+    a.className="nav-link";
+    a.href=hrefS;
+    var i= document.createElement("i");
+    i.className=iClassName;
+    var span= document.createElement("span");
+    span.innerHTML=name;
+    a.append(i,span);
+    pages.appendChild(a);
+}
 function createSectorDisplay(sector) {
     let p1 = document.createElement("div");
     p1.className = "col mb-4";

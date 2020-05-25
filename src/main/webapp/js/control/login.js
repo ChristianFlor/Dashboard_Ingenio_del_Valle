@@ -19,13 +19,11 @@ function login( e ) {
         console.log(xhr.responseText);
         var key= (JSON.parse(xhr.responseText));
         if(key.id === undefined){
-            alert("contraseña errada");
+            alert("usuario invalido");
         }else{
             localStorage.setItem("key", JSON.stringify(key));
             window.location.href= "index.html";
-            console.log(localStorage.getItem("key"));
         }
-
     };
 
     xhr.open("GET","api/engineer/login/"+username+"/"+password);
