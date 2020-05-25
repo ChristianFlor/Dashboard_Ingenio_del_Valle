@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Assign Sector</title>
+  <title>Profile</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -149,7 +149,7 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                
+                              
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" id="logoutBTN">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -165,29 +165,45 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
+        <div class="container">
 
-        <div class="text-center">
-            <h1>Assign Sector</h1>
-        </div>
-          <div class="table-responsive">
-            <table class="table table-hover" id="tableEngineer"> </table>
-          </div>
-          
-          <div class="row text-center">
-            <div class="col text-center">
-              <input class="btn btn-success" type="button" id="selectEngineer" value="Select Engineer" />
+          <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+              <!-- Nested Row within Card Body -->
+              <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h1 class="h4 text-gray-900 mb-4">Your Information!</h1>
+                    </div>
+                    <form class="user">
+                      <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                          <input type="text" class="form-control form-control-user" id="firstName" placeholder="First Name" required>
+                        </div>
+                        <div class="col-sm-6">
+                          <input type="text" class="form-control form-control-user" id="lastName" placeholder="Last Name" required>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <input type="number" class="form-control form-control-user" id="inputID" placeholder="ID" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control form-control-user" id="inputUsernameRegister" placeholder="Username" required>
+                      </div>
+                      <div class="form-group">
+                        <input type="email" class="form-control form-control-user" id="inputEmail" placeholder="Email Address" required>
+                      </div>
+                      
+                      <a href="login.html" class="btn btn-primary btn-user btn-block">
+                        Save changes
+                      </a>                   
+                    </form> 
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        <br></br> 
-       
-       
-        <div class="list-group list-group-horizontal" id="sectoresB"></div>
-        <br></br> 
-        <div class="row text-center">
-          <div class="col text-center"><button type="submit"
-                  class="btn btn-success expand" id= assign>Assign</button>
-          </div>
-        </div>
          
         </div>
         <!-- /.container-fluid -->
