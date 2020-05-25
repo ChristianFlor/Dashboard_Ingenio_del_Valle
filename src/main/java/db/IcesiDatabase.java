@@ -313,7 +313,7 @@ public class IcesiDatabase {
     }
 
     //Lista de sectores de un ingeniero
-    public ArrayList<String> getListSectores(String idEngAssigned){
+    public ArrayList<String> getListSectors(String idEngAssigned){
         ArrayList<String> sectores = new ArrayList<>();
         try {
             String sql = "SELECT * FROM sector WHERE idEngAssigned = '%IDENGASSIGNED%'";
@@ -338,4 +338,6 @@ public class IcesiDatabase {
     public void setBusy(boolean busy) {
         this.busy = busy;
     }
+
+
 }

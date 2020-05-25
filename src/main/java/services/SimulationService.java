@@ -62,4 +62,12 @@ public class SimulationService {
         }
         icesiDatabase.setBusy(false);
     }
+    @GET
+    @Path("allowed/{id}")
+    public ArrayList<String> getAllowedSectors(@PathParam("id")String id) {
+        IcesiDatabase icesiDatabase = ConnectionPool.getAvailableConnection();
+        ArrayList<String> sectors = icesiDatabase.getListSectors(id);
+        icesiDatabase.setBusy(false);
+        return sectors;
+    }
 }

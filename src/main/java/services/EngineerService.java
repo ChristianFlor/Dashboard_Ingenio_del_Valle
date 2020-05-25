@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @Path("engineer")
 public class EngineerService {
 
-    //CRUD: Create,Read,Uptade,Delate
+    //CRUD: Create,Read,Update,Delete
 
     @Path("register")
     @POST
@@ -81,7 +81,7 @@ public class EngineerService {
     @Produces("application/json")
     public ArrayList<String> getListSectors(@PathParam("engineerID") String engineerID){
         IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
-        ArrayList<String> sectors = icesiDataBase.getListSectores(engineerID);
+        ArrayList<String> sectors = icesiDataBase.getListSectors(engineerID);
         icesiDataBase.setBusy(false);
         return sectors;
     }
