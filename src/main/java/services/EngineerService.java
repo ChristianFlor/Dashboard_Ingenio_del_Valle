@@ -2,6 +2,7 @@ package services;
 
 import db.ConnectionPool;
 import db.IcesiDatabase;
+import model.Email;
 import model.Engineer;
 
 import javax.ejb.Stateless;
@@ -56,6 +57,16 @@ public class EngineerService {
         return engineer;
     }
 
+    @GET
+    @Path("byEmail")
+    @Produces("application/json")
+    public Engineer getEngineerByEmail(@QueryParam("email") String email){
+        IcesiDatabase icesiDataBase = ConnectionPool.getAvailableConnection();
+        Engineer engineer = icesiDataBase.getEngineerByEmail(email);
+        icesiDataBase.setBusy(false);
+        return engineer;
+    }
+
     //CRUD: Create,Read,Uptade,Delate
 
     @PUT
@@ -84,6 +95,16 @@ public class EngineerService {
         ArrayList<String> sectors = icesiDataBase.getListSectores(engineerID);
         icesiDataBase.setBusy(false);
         return sectors;
+    }
+
+    @HEAD
+    @Path("enviaremail/{email}")
+    public void enviarEmail(@PathParam("email") String email){
+        IcesiDatabase icesiDatabase =   ConnectionPool.getAvailableConnection();
+        Engineer engineer = icesiDatabase.getEngineerByEmail(email);
+        String pass = engineer.getPassword();
+        Email email1 = new Email();
+        email1.enviarEmail(email,pass);
     }
 
 }

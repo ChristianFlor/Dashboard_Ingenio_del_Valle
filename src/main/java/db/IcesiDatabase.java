@@ -153,6 +153,29 @@ public class IcesiDatabase {
         return engineer;
     }
 
+    public Engineer getEngineerByEmail(String email){
+        String sql = "SELECT * FROM engineer WHERE email = '%EMAIL%'";
+        sql = sql.replace("%EMAIL%",email);
+        try {
+            ResultSet resultSet = statement.executeQuery(sql);
+            while(resultSet.next()){
+                String idE = resultSet.getString(1);
+                String name = resultSet.getString(2);
+                String lastName = resultSet.getString(3);
+                String email1 = resultSet.getString(4);
+                String username = resultSet.getString(5);
+                String pass = resultSet.getString(6);
+                Engineer engineer = new Engineer(name,lastName,idE,username,pass,email1);
+                return engineer;
+            }
+            statement.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Engineer engineer = new Engineer();
+        return engineer;
+    }
+
     public ArrayList<Measurement> getAllMeasurements(){
         ArrayList<Measurement> measurements = new ArrayList<>();
         try {
