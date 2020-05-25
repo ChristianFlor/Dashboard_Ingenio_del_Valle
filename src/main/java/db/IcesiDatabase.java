@@ -115,8 +115,14 @@ public class IcesiDatabase {
             ResultSet resultSet =statement.executeQuery(sql);
 
             if(resultSet.next()){
-                Engineer e= new Engineer(resultSet.getString(1));
-                return e;
+                String id = resultSet.getString(1);
+                String name = resultSet.getString(2);
+                String lastName = resultSet.getString(3);
+                String email = resultSet.getString(4);
+                String user = resultSet.getString(5);
+                String pass = resultSet.getString(6);
+                Engineer engineer = new Engineer(name,lastName,id,user,pass,email);
+                return engineer;
             }
         } catch (SQLException e) {
             e.printStackTrace();

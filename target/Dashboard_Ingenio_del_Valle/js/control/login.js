@@ -21,8 +21,9 @@ function login( e ) {
         if(key.id === undefined){
             alert("contraseña errada");
         }else{
-            localStorage.setItem("key", xhr.responseText);
+            localStorage.setItem("key", JSON.stringify(key));
             window.location.href= "index.html";
+            console.log(localStorage.getItem("key"));
         }
 
     };
