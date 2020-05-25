@@ -88,7 +88,7 @@ public class IcesiDatabase {
     public ArrayList<Engineer> getAllEngineers(){
         ArrayList<Engineer> engineers = new ArrayList<>();
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT *FROM engineer");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM engineer WHERE id != 98765");
 
             while(resultSet.next()){
                 String id = resultSet.getString(1);
