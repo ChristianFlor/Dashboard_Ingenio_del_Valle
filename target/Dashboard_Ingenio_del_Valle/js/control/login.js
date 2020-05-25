@@ -22,7 +22,7 @@ function login( e ) {
             alert("usuario invalido");
         }else{
             localStorage.setItem("key", JSON.stringify(key));
-            window.location.href= "index.html";
+            window.location.href= "home.html";
         }
     };
 

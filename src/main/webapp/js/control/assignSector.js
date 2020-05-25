@@ -113,11 +113,12 @@ selectEngineer.addEventListener("click",function () {
     var id = $(".selected td:first").html();
     id = id || "No row Selected";
     idEngineer = id;
-    alert(id);
+    alert("El ingeniero: "+idEngineer+" ha sido selecionado correctamente");
 });
 
 assign.addEventListener("click",function () {
     assignSector(idEngineer,sectores);
+    alert("Al ingeniero: "+idEngineer+" se le ha asignado correctamente el sector seleccionado");
 });
 
 function assignSector(idEngineer,sectores){

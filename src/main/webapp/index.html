@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Dashboard Ingenio del Valle</title>
+  <title>Login</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,221 +17,75 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <style>
+    .img-body{
+      /* The image used */
+      background-image: url(https://www.ingprovidencia.com/wp-content/uploads/2016/04/Destacado-Ambiental.png) ;
+      /* Full height */
+      height: 100%;
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+    html {
+      overflow-y:scroll;
+      overflow-x:hidden;
+    }
+    </style>
 </head>
 
-<body id="page-top">
+<body class="img-body">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+  <div class="container">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <img width=50 src="img/logo.png"/>
-        </div>
-        <div class="sidebar-brand-text mx-3">Admin </div>
-      </a>
+      <div class="col-xl-5 col-lg-12 col-md-9">
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-angle-up"></i>
-          <span>Home</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Services
-      </div>
-
-      <li id="pages" class="nav-item">
-
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-    
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="user"></span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="profile.html">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal" id="logoutBTN">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Home</h1>
-          </div>
-          <!-- Approach -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Ingenio del Valle</h6>
-            </div>
-            <div class="card-body">
-              <p>Es un negocio de hace 156 años el cual es una empresa reconocida en el sector azucarero en Colombia.</p>
-              <p class="mb-0">Los cultivos de caña dependen de la manutención de la tierra donde se siembran los cultivos a través de controlar variables de la tierra
-                como el PH, la temperatura, la humedad y el CO2. La tierra de siembra se encuentra dividida en 10 sectores.</p>
-                <p>Se tienen dos perfiles los cuales son: el ingeniero y el tecnico agronomo.</p>
-            </div>
-            
-          </div>
-          
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Tecnico</h6>
-                </div>
-                <div class="card-body">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              
+              <div class="col-lg">
+                <div class="p-4">
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/tecnico.svg" alt="">
+                    <img width=150 src="img/logo.png"/>
+                    <br></br>
                   </div>
-                  <p>Los técnicos usan una libreta donde registran en papel las variables que toman con dispositivos electrónicos. El objetivo diario de ellos es hacer 16 mediciones diarias repartidas durante todo el día laboral (7AM – 6PM) de modo que puedan al final del día escribir el reporte en una hoja de cálculo y generar cuatro gráficos correspondientes a las variables: PH, humedad, CO2 y temperatura.</p>
-                </div>
-                <div class="text-center">
-                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/data_processing.svg" alt="">
-                </div>
-              </div>
-              <div class="row"></div>
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Ingeniero</h6>
-                </div>
-                <div class="card-body">
+                  <form class="user">
+                    <div class="form-group">
+                      <input type="username" class="form-control form-control-user" id="inputUsernameLogin" placeholder="Username..." required>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control form-control-user" id="inputPassword" placeholder="Password" required>
+                    </div>
+                    <a href="" class="btn btn-primary btn-user btn-block" id="loginBTN">
+                      Iniciar Sesión
+                    </a>
+                    
+                  </form>
+                  <hr>
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/ingeniero.svg" alt="">
+                    <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
-                  <p>Los ingenieros agrónomos reciben archivos generados diariamente por los técnicos y su tarea es realizar un análisis y seguimiento del estado de la tierra a sembrar. Cada sector es asignado a un ingeniero para que éste analice las variables.</p>
                   <div class="text-center">
-                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/data_analyze.svg" alt="">
+                    <a class="small" href="register.html">Create an Account!</a>
                   </div>
                 </div>
               </div>
-
-
             </div>
           </div>
-
         </div>
-        <!-- /.container-fluid -->
 
       </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-             <span>Copyright &copy; Icesi University 2019</span>
-          </div>
-        </div>
-      </footer>
-      <!-- End of Footer -->
 
     </div>
-    <!-- End of Content Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Bootstrap core JavaScript-->
@@ -243,9 +97,8 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+  <script type="text/javascript" src = "js/control/login.js"></script>
 
 </body>
-
-<script type="text/javascript" src = "js/control/index.js"></script>
 
 </html>

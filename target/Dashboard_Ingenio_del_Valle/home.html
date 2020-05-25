@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Assign Sector</title>
+  <title>Dashboard Ingenio del Valle</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,14 +18,6 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <style>
-    td {border: 1px #DDD solid; padding: 5px; cursor: pointer;}
-
-.selected {
-    background-color: #99dfb3;
-    color: #FFF;
-}
-  </style>
 </head>
 
 <body id="page-top">
@@ -132,29 +124,70 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-        <div class="text-center">
-            <h1>Assign Sector</h1>
-        </div>
-          <div class="table-responsive">
-            <table class="table table-hover" id="tableEngineer"> </table>
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Home</h1>
+          </div>
+          <!-- Approach -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Ingenio del Valle</h6>
+            </div>
+            <div class="card-body">
+              <p>Es un negocio de hace 156 años el cual es una empresa reconocida en el sector azucarero en Colombia.</p>
+              <p class="mb-0">Los cultivos de caña dependen de la manutención de la tierra donde se siembran los cultivos a través de controlar variables de la tierra
+                como el PH, la temperatura, la humedad y el CO2. La tierra de siembra se encuentra dividida en 10 sectores.</p>
+                <p>Se tienen dos perfiles los cuales son: el ingeniero y el tecnico agronomo.</p>
+            </div>
+            
           </div>
           
-          <div class="row text-center">
-            <div class="col text-center">
-              <input class="btn btn-success" type="button" id="selectEngineer" value="Select Engineer" />
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- Content Column -->
+            <div class="col-lg-6 mb-4">
+
+              <!-- Project Card Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Tecnico</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/tecnico.svg" alt="">
+                  </div>
+                  <p>Los técnicos usan una libreta donde registran en papel las variables que toman con dispositivos electrónicos. El objetivo diario de ellos es hacer 16 mediciones diarias repartidas durante todo el día laboral (7AM – 6PM) de modo que puedan al final del día escribir el reporte en una hoja de cálculo y generar cuatro gráficos correspondientes a las variables: PH, humedad, CO2 y temperatura.</p>
+                </div>
+                <div class="text-center">
+                  <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/data_processing.svg" alt="">
+                </div>
+              </div>
+              <div class="row"></div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+
+              <!-- Illustrations -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Ingeniero</h6>
+                </div>
+                <div class="card-body">
+                  <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/ingeniero.svg" alt="">
+                  </div>
+                  <p>Los ingenieros agrónomos reciben archivos generados diariamente por los técnicos y su tarea es realizar un análisis y seguimiento del estado de la tierra a sembrar. Cada sector es asignado a un ingeniero para que éste analice las variables.</p>
+                  <div class="text-center">
+                    <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/data_analyze.svg" alt="">
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
-        <br></br> 
-       
-       
-        <div class="list-group list-group-horizontal" id="sectoresB"></div>
-        <br></br> 
-        <div class="row text-center">
-          <div class="col text-center"><button type="submit"
-                  class="btn btn-success expand" id= assign>Assign</button>
-          </div>
-        </div>
-         
+
         </div>
         <!-- /.container-fluid -->
 
@@ -165,7 +198,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Icesi University 2019</span>
+             <span>Copyright &copy; Icesi University 2019</span>
           </div>
         </div>
       </footer>
@@ -211,7 +244,8 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
-  <script type="text/javascript" src = "js/control/assignSector.js"></script>
 </body>
+
+<script type="text/javascript" src = "js/control/index.js"></script>
 
 </html>

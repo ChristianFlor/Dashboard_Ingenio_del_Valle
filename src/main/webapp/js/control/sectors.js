@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sectorContainer.appendChild(createSectorDisplay(e));
         requestData(e);
     });
+    console.log(key.id);
     loadUser();
 });
 function loadUser() {
