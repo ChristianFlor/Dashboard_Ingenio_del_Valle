@@ -21,7 +21,7 @@ function register() {
     var engineer = new Engineer(name,lastname,id,username,password,email);
 
     var json = engineer.toJson();
-
+   
     var xhr = new XMLHttpRequest();
     xhr.onloadend = function(){
         console.log(json);

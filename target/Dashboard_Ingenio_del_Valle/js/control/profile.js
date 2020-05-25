@@ -12,8 +12,8 @@ const engineer = JSON.parse(localStorage.getItem("key"));
 const sectorsHRef="sectors.html";
 const sectorI="fas fa-fw fa-tachometer-alt";
 const sectorName = "Sectors";
-
 var pass = engineer.password;
+
 const asign_sectorsHRef="assign-sector.html";
 const assing_sectorI="fas fa-fw fa-user";
 const assign_sectorName="Assign Sector";
@@ -72,4 +72,5 @@ function save() {
     xhr.open("PUT","api/engineer/update");
     xhr.setRequestHeader("Content-Type","application/json");
     xhr.send(json);
+
 }

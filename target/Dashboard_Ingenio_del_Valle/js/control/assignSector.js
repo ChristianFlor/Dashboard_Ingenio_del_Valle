@@ -94,7 +94,6 @@ function loadSectores(){
 
 function createButton(nSector){
     var button = document.createElement("button");
-    console.log(nSector);
     button.className = "list-group-item list-group-item-action";
     button.id = nSector;
     button.innerHTML = nSector;
